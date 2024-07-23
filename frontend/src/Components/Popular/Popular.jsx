@@ -1,7 +1,7 @@
 import React from "react";
 import "./Popular.css";
 import data_product from "../Assets/data";
-import Item from "../Items/Items";
+import Items from "../Items/Items";
 const Popular = () => {
   return (
     <div className="popular">
@@ -10,7 +10,7 @@ const Popular = () => {
       <div className="popular_item">
         {data_product.map((item, i) => {
           return (
-            <Item
+            <Items
               key={i}
               id={item.id}
               name={item.name}
