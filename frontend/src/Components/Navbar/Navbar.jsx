@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "./Navbar.css";
 import logo from "../Assets/logo.png";
 import cart_icon from "../Assets/cart_icon.png";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../../Context/ShopContext";
+import drop_down from "../Assets/nav_dropdown.png";
 
 const Navbar = () => {
   //use usestate to change the underline by clicking
@@ -12,13 +14,28 @@ const Navbar = () => {
   //use <Link> tag to route
 
   const [menu, setMenu] = useState();
+  const { getTotalCartItems } = useContext(ShopContext);
+  const menuRef = useRef();
+  const dropDown_toggle = (e) => {
+    if (menuRef.current && e.target) {
+      menuRef.current.classList.toggle("nav-menu-visible");
+      e.target.classList.toggle("open");
+    }
+  };
+
   return (
     <div className="navbar">
       <div className="nav_logo">
         <img src={logo} alt="" />
         <p>SHOP</p>
       </div>
-      <ul className="nav_menu">
+      <img
+        src={drop_down}
+        alt=""
+        className="nav_drop_down"
+        onClick={dropDown_toggle}
+      />
+      <ul ref={menuRef} className="nav_menu">
         <li
           onClick={() => {
             setMenu("shop");
@@ -59,7 +76,7 @@ const Navbar = () => {
           <img src={cart_icon} alt="" />
         </Link>
 
-        <div className="nav-card-count">0</div>
+        <div className="nav-card-count">{getTotalCartItems()}</div>
       </div>
     </div>
   );
