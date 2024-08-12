@@ -26,3 +26,16 @@
   padding: 48px;
   padding-bottom: 70px;
 }
+@media (max-width: 1280px) {
+  .descriptionBox {
+    margin: 16px;
+  }
+}
+@media (max-width: 800px) {
+  .descriptionBox {
+    margin: 16px 20px;
+  }
+  .descriptionBox_descrip {
+    font-size: 14px;
+  }
+}

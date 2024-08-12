@@ -53,3 +53,28 @@
   height: 3px;
   background: #c7c7c7;
 }
+@media (max-width: 800px) {
+  .footer {
+    gap: 20px;
+  }
+  .footerLogo {
+    gap: 10px;
+    align-items: end;
+  }
+  .footerLogo img {
+    width: 40px;
+  }
+  .footerLogo p {
+    font-size: 25px;
+  }
+  .footerLinks {
+    font-size: 14px;
+    gap: 10px;
+  }
+  .footerSocialMedia_Icon img {
+    width: 22px;
+  }
+  .footerCopyright {
+    font-size: 13px;
+  }
+}
